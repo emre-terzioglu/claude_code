@@ -1,0 +1,95 @@
+name: "Update News & Deploy Dashboard"
+
+# ── Triggers ─────────────────────────────────────────────────────────────────
+on:
+  # Rebuild every 6 hours so news stays fresh
+  schedule:
+    - cron: "0 */6 * * *"
+
+  # Also rebuild on every push to the dashboard branch
+  push:
+    branches:
+      - "claude/create-insights-dashboard-ydH8A"
+      - "main"
+
+  # Allow manual trigger from GitHub UI
+  workflow_dispatch:
+
+# ── Permissions ──────────────────────────────────────────────────────────────
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# ── Concurrency: only one deploy at a time ────────────────────────────────────
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+# ── Jobs ──────────────────────────────────────────────────────────────────────
+jobs:
+
+  # ── 1. Fetch news & build artifact ─────────────────────────────────────────
+  fetch-and-build:
+    name: "Fetch news data"
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1a. Checkout source
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 1b. Python for the news fetcher
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      # 1c. Install feedparser (only dependency)
+      - name: Install dependencies
+        run: pip install feedparser
+
+      # 1d. Fetch news and write data/*.json
+      - name: Fetch news
+        run: |
+          python scripts/fetch_news.py
+          echo "── data files ──"
+          ls -lh data/
+          echo "── IoT sample ──"
+          python -c "
+          import json
+          d = json.load(open('data/iot.json'))
+          print(f\"{d['count']} articles, updated {d['updated_at']}\")
+          for a in d['articles'][:2]:
+              print('  •', a['title'][:80])
+          "
+
+      # 1e. Add .nojekyll so GitHub Pages doesn't try to process with Jekyll
+      - name: Add .nojekyll
+        run: touch .nojekyll
+
+      # 1f. Configure GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # 1g. Upload entire repo (with fresh data/) as Pages artifact
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+  # ── 2. Deploy to GitHub Pages ───────────────────────────────────────────────
+  deploy:
+    name: "Deploy to GitHub Pages"
+    needs: fetch-and-build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
