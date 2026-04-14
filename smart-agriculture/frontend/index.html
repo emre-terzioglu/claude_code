@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriAI — Smart Farm Decision System</title>
+  <style>
+    /* -----------------------------------------------------------------------
+       Design system — agriculture dark theme
+    ----------------------------------------------------------------------- */
+    :root {
+      --bg:          #0d1117;
+      --surface:     #161b22;
+      --surface-2:   #21262d;
+      --border:      #30363d;
+      --green:       #3fb950;
+      --green-dim:   #1a4a2a;
+      --yellow:      #d29922;
+      --yellow-dim:  #3d2e0a;
+      --red:         #f85149;
+      --red-dim:     #3d1414;
+      --blue:        #58a6ff;
+      --text:        #e6edf3;
+      --text-muted:  #8b949e;
+      --radius:      10px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* -----------------------------------------------------------------------
+       Header
+    ----------------------------------------------------------------------- */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .logo-icon { font-size: 22px; }
+
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .live-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--green);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    select {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    /* -----------------------------------------------------------------------
+       Main layout
+    ----------------------------------------------------------------------- */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 24px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    /* -----------------------------------------------------------------------
+       Sensor grid
+    ----------------------------------------------------------------------- */
+    .sensor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 14px;
+    }
+
+    .sensor-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+
+    .sensor-card.stress {
+      border-color: var(--red);
+      background: linear-gradient(135deg, var(--surface), var(--red-dim));
+    }
+
+    .sensor-card.warning {
+      border-color: var(--yellow);
+      background: linear-gradient(135deg, var(--surface), var(--yellow-dim));
+    }
+
+    .sensor-card.ok {
+      border-color: var(--green);
+    }
+
+    .sensor-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .sensor-value {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .sensor-unit {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-left: 2px;
+    }
+
+    .sensor-bar-wrap {
+      margin-top: 12px;
+      height: 4px;
+      background: var(--surface-2);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .sensor-bar {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.6s ease;
+    }
+
+    .sensor-status-icon {
+      position: absolute;
+      top: 14px; right: 16px;
+      font-size: 16px;
+    }
+
+    /* -----------------------------------------------------------------------
+       Status bar
+    ----------------------------------------------------------------------- */
+    .status-bar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .status-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .status-pill {
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .pill-optimal  { background: var(--green-dim); color: var(--green); }
+    .pill-attention{ background: var(--yellow-dim); color: var(--yellow); }
+    .pill-critical { background: var(--red-dim);   color: var(--red); }
+
+    .btn {
+      padding: 8px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+
+    .btn:hover  { opacity: 0.85; }
+    .btn:active { transform: scale(0.97); }
+
+    .btn-primary {
+      background: var(--green);
+      color: #0d1117;
+    }
+
+    .btn-secondary {
+      background: var(--surface-2);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* -----------------------------------------------------------------------
+       Two-column layout for analysis + automation
+    ----------------------------------------------------------------------- */
+    .analysis-row {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 20px;
+    }
+
+    @media (max-width: 800px) {
+      .analysis-row { grid-template-columns: 1fr; }
+    }
+
+    /* -----------------------------------------------------------------------
+       AI Recommendations panel
+    ----------------------------------------------------------------------- */
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .model-tag {
+      font-size: 11px;
+      color: var(--blue);
+      background: rgba(88, 166, 255, 0.1);
+      border: 1px solid rgba(88, 166, 255, 0.25);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .summary-text {
+      background: var(--surface-2);
+      border-left: 3px solid var(--blue);
+      padding: 12px 16px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 16px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    /* Observations list */
+    .obs-item {
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .obs-CRITICAL { background: var(--red-dim);    border-left: 3px solid var(--red); }
+    .obs-HIGH     { background: var(--red-dim);    border-left: 3px solid #ff7b72; }
+    .obs-MEDIUM   { background: var(--yellow-dim); border-left: 3px solid var(--yellow); }
+    .obs-LOW      { background: var(--surface-2);  border-left: 3px solid var(--text-muted); }
+
+    .obs-meta {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      opacity: 0.7;
+      margin-bottom: 2px;
+    }
+
+    /* Recommendations */
+    .rec-item {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+
+    .rec-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .rec-action {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .priority-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .p-CRITICAL { background: var(--red-dim);    color: var(--red); }
+    .p-HIGH     { background: var(--red-dim);    color: #ff7b72; }
+    .p-MEDIUM   { background: var(--yellow-dim); color: var(--yellow); }
+    .p-LOW      { background: var(--surface-2);  color: var(--text-muted); }
+
+    .rec-rationale {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .rec-impact {
+      font-size: 11px;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    /* -----------------------------------------------------------------------
+       Automated actions panel
+    ----------------------------------------------------------------------- */
+    .auto-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      height: fit-content;
+    }
+
+    .auto-empty {
+      text-align: center;
+      padding: 32px 16px;
+      color: var(--text-muted);
+    }
+
+    .auto-empty-icon { font-size: 32px; margin-bottom: 8px; }
+
+    .action-card {
+      background: var(--surface-2);
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 10px;
+    }
+
+    .action-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .status-ACTIVATED  { color: var(--red); }
+    .status-SCHEDULED  { color: var(--yellow); }
+    .status-MONITORING { color: var(--blue); }
+
+    .action-trigger {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .action-desc {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* -----------------------------------------------------------------------
+       Timestamp + metadata row
+    ----------------------------------------------------------------------- */
+    .meta-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .meta-item { display: flex; align-items: center; gap: 6px; }
+
+    /* -----------------------------------------------------------------------
+       Loader spinner
+    ----------------------------------------------------------------------- */
+    .spinner {
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--border);
+      border-top-color: var(--green);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* -----------------------------------------------------------------------
+       Empty / loading states
+    ----------------------------------------------------------------------- */
+    .placeholder {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--text-muted);
+    }
+
+    .placeholder-icon { font-size: 40px; margin-bottom: 12px; }
+
+    .confidence-bar-wrap {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .confidence-bar {
+      flex: 1;
+      height: 4px;
+      background: var(--surface-2);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .confidence-fill {
+      height: 100%;
+      background: var(--blue);
+      border-radius: 2px;
+      transition: width 0.8s ease;
+    }
+  </style>
+</head>
+<body>
+
+<!-- =========================================================================
+     Header
+========================================================================== -->
+<header>
+  <div class="logo">
+    <span class="logo-icon">🌱</span>
+    AgriAI <span style="color: var(--text-muted); font-weight: 400; margin-left: 4px;">Smart Farm Dashboard</span>
+  </div>
+  <div class="header-meta">
+    <div class="live-badge">
+      <div class="dot"></div>
+      LIVE TELEMETRY
+    </div>
+    <select id="cropSelect">
+      <option value="tomato">🍅 Tomato</option>
+      <option value="wheat">🌾 Wheat</option>
+      <option value="pepper">🫑 Pepper</option>
+    </select>
+  </div>
+</header>
+
+<main>
+
+  <!-- -----------------------------------------------------------------------
+       Sensor readings
+  ----------------------------------------------------------------------- -->
+  <section>
+    <div class="section-title">Real-Time Sensor Data</div>
+    <div class="sensor-grid" id="sensorGrid">
+      <!-- Populated by JS -->
+      <div class="placeholder" style="grid-column: 1/-1; padding: 32px">
+        <div class="spinner"></div>
+        <p style="margin-top: 12px">Connecting to sensor nodes…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- -----------------------------------------------------------------------
+       Status + controls
+  ----------------------------------------------------------------------- -->
+  <div class="status-bar">
+    <div class="status-label">
+      System Status:
+      <span class="status-pill pill-optimal" id="statusPill">—</span>
+      <span id="statusSummary" style="font-size: 13px; font-weight: 400; color: var(--text-muted)"></span>
+    </div>
+    <div style="display: flex; gap: 10px; align-items: center">
+      <button class="btn btn-secondary" id="refreshBtn" onclick="fetchSensors()">
+        ↻ Refresh Sensors
+      </button>
+      <button class="btn btn-primary" id="analyzeBtn" onclick="runAnalysis()">
+        ▶ Run Analysis
+      </button>
+    </div>
+  </div>
+
+  <!-- -----------------------------------------------------------------------
+       Analysis + Automation (two-column)
+  ----------------------------------------------------------------------- -->
+  <div class="analysis-row">
+
+    <!-- AI Recommendations -->
+    <div class="panel" id="analysisPanel">
+      <div class="panel-header">
+        <div class="section-title" style="margin-bottom: 0">AI Recommendations</div>
+        <span class="model-tag" id="modelTag">AgriAI-v1.3</span>
+      </div>
+
+      <div class="placeholder" id="analysisPlaceholder">
+        <div class="placeholder-icon">🤖</div>
+        <p>Click <strong>Run Analysis</strong> to generate AI-powered insights from the current sensor data.</p>
+      </div>
+
+      <div id="analysisContent" style="display:none">
+        <div class="summary-text" id="summaryText"></div>
+
+        <div class="section-title">Observations</div>
+        <div id="observationsList"></div>
+
+        <div class="section-title" style="margin-top: 16px">Recommendations</div>
+        <div id="recommendationsList"></div>
+
+        <div class="confidence-bar-wrap">
+          <span>Model confidence</span>
+          <div class="confidence-bar">
+            <div class="confidence-fill" id="confidenceFill" style="width: 0%"></div>
+          </div>
+          <span id="confidenceLabel">—</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Automated Actions -->
+    <div class="auto-panel">
+      <div class="section-title">Automated Actions</div>
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px">
+        Rule-based triggers that fire without human input when sensor thresholds are breached.
+      </p>
+
+      <div id="automationContent">
+        <div class="auto-empty" id="automationEmpty">
+          <div class="auto-empty-icon">✅</div>
+          <p>No automated actions triggered.<br>All thresholds within range.</p>
+        </div>
+        <div id="automationList"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Meta row -->
+  <div class="meta-row" id="metaRow" style="display:none">
+    <div class="meta-item">📡 Sensor: <strong id="metaSensorId">—</strong></div>
+    <div class="meta-item">🌱 Crop: <strong id="metaCropType">—</strong></div>
+    <div class="meta-item">🕐 Last updated: <strong id="metaTimestamp">—</strong></div>
+  </div>
+
+</main>
+
+<!-- =========================================================================
+     JavaScript — Dashboard Logic
+========================================================================== -->
+<script>
+  // ---------------------------------------------------------------------------
+  // Configuration
+  // ---------------------------------------------------------------------------
+  const API_BASE = 'http://localhost:8000';
+
+  // Sensor display config: label, unit, colour thresholds, bar scale
+  const SENSOR_CONFIG = {
+    soil_moisture:  { label: 'Soil Moisture',  unit: '%',     max: 100, low: 25, high: 80, color: '#58a6ff' },
+    temperature:    { label: 'Temperature',    unit: '°C',    max: 50,  low: 0,  high: 35, color: '#f0883e' },
+    humidity:       { label: 'Humidity',       unit: '%',     max: 100, low: 35, high: 85, color: '#79c0ff' },
+    ph:             { label: 'Soil pH',        unit: 'pH',    max: 14,  low: 5.5,high: 7.5,color: '#a5a5ff' },
+    nitrogen:       { label: 'Nitrogen',       unit: 'mg/kg', max: 120, low: 20, high: 100,color: '#3fb950' },
+    light_intensity:{ label: 'Light',          unit: 'lux',   max: 1500,low: 200,high: 1200,color: '#d29922'},
+  };
+
+  let currentSensorData = null;
+
+  // ---------------------------------------------------------------------------
+  // Fetch + render sensor data
+  // ---------------------------------------------------------------------------
+  async function fetchSensors() {
+    const crop = document.getElementById('cropSelect').value;
+    setButtonLoading('refreshBtn', true);
+
+    try {
+      const res = await fetch(`${API_BASE}/sensor-data?crop_type=${crop}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      currentSensorData = data;
+      renderSensors(data);
+    } catch (err) {
+      document.getElementById('sensorGrid').innerHTML =
+        `<p style="color: var(--red); grid-column: 1/-1">⚠ Could not reach API: ${err.message}. Is the backend running on port 8000?</p>`;
+    } finally {
+      setButtonLoading('refreshBtn', false);
+    }
+  }
+
+  function renderSensors(data) {
+    const grid = document.getElementById('sensorGrid');
+    grid.innerHTML = '';
+
+    for (const [key, cfg] of Object.entries(SENSOR_CONFIG)) {
+      if (data[key] === undefined) continue;
+
+      const val = data[key];
+      const pct = Math.min(100, (val / cfg.max) * 100);
+
+      // Determine card state
+      let state = 'ok';
+      let icon  = '✅';
+      if (val < cfg.low) { state = 'stress';  icon = '⚠️'; }
+      else if (val > cfg.high) { state = 'warning'; icon = '⚠️'; }
+      if (key === 'ph' && (val < cfg.low || val > cfg.high)) { state = 'warning'; icon = '⚠️'; }
+
+      grid.innerHTML += `
+        <div class="sensor-card ${state}">
+          <div class="sensor-status-icon">${icon}</div>
+          <div class="sensor-label">${cfg.label}</div>
+          <div class="sensor-value">
+            ${Number.isInteger(val) ? val : val.toFixed(1)}
+            <span class="sensor-unit">${cfg.unit}</span>
+          </div>
+          <div class="sensor-bar-wrap">
+            <div class="sensor-bar" style="width: ${pct}%; background: ${cfg.color}"></div>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // Run AI analysis
+  // ---------------------------------------------------------------------------
+  async function runAnalysis() {
+    if (!currentSensorData) {
+      await fetchSensors();
+    }
+
+    setButtonLoading('analyzeBtn', true);
+    document.getElementById('analysisPlaceholder').style.display = 'none';
+    document.getElementById('analysisContent').style.display = 'none';
+
+    try {
+      const res = await fetch(`${API_BASE}/analyze`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(currentSensorData),
+      });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const result = await res.json();
+      renderAnalysis(result);
+    } catch (err) {
+      document.getElementById('analysisPlaceholder').style.display = 'block';
+      document.getElementById('analysisPlaceholder').innerHTML =
+        `<p style="color: var(--red)">⚠ Analysis failed: ${err.message}</p>`;
+    } finally {
+      setButtonLoading('analyzeBtn', false);
+    }
+  }
+
+  function renderAnalysis(result) {
+    // Overall status pill
+    const pill = document.getElementById('statusPill');
+    const pillClasses = { OPTIMAL: 'pill-optimal', ATTENTION_NEEDED: 'pill-attention', CRITICAL: 'pill-critical' };
+    pill.className = 'status-pill ' + (pillClasses[result.status] || 'pill-optimal');
+    pill.textContent = result.status.replace('_', ' ');
+    document.getElementById('statusSummary').textContent = '';
+
+    // Summary
+    document.getElementById('summaryText').textContent = result.summary;
+
+    // Observations
+    const obsList = document.getElementById('observationsList');
+    obsList.innerHTML = '';
+    if (result.observations.length === 0) {
+      obsList.innerHTML = '<p style="color: var(--green); font-size: 13px">✅ No anomalies detected.</p>';
+    } else {
+      result.observations.forEach(obs => {
+        obsList.innerHTML += `
+          <div class="obs-item obs-${obs.severity}">
+            <div class="obs-meta">${obs.severity} · ${obs.metric.replace('_', ' ').toUpperCase()} = ${obs.value} ${obs.unit}</div>
+            ${obs.finding}
+          </div>
+        `;
+      });
+    }
+
+    // Recommendations
+    const recList = document.getElementById('recommendationsList');
+    recList.innerHTML = '';
+    if (result.recommendations.length === 0) {
+      recList.innerHTML = '<p style="color: var(--text-muted); font-size: 13px">No action required.</p>';
+    } else {
+      result.recommendations.forEach(rec => {
+        recList.innerHTML += `
+          <div class="rec-item">
+            <div class="rec-header">
+              <div class="rec-action">→ ${rec.action}</div>
+              <span class="priority-badge p-${rec.priority}">${rec.priority}</span>
+            </div>
+            <div class="rec-rationale">${rec.rationale}</div>
+            <div class="rec-impact">💡 ${rec.estimated_impact}</div>
+          </div>
+        `;
+      });
+    }
+
+    // Confidence bar
+    const conf = Math.round(result.confidence * 100);
+    document.getElementById('confidenceFill').style.width = conf + '%';
+    document.getElementById('confidenceLabel').textContent = conf + '%';
+    document.getElementById('modelTag').textContent = result.model_version;
+
+    // Automated actions
+    const autoList   = document.getElementById('automationList');
+    const autoEmpty  = document.getElementById('automationEmpty');
+    autoList.innerHTML = '';
+
+    if (result.automated_actions.length === 0) {
+      autoEmpty.style.display = 'block';
+    } else {
+      autoEmpty.style.display = 'none';
+      result.automated_actions.forEach(act => {
+        const icons = { ACTIVATED: '🔴', SCHEDULED: '🟡', MONITORING: '🔵' };
+        autoList.innerHTML += `
+          <div class="action-card">
+            <div class="action-status status-${act.status}">
+              ${icons[act.status] || '⚫'} ${act.status}
+            </div>
+            <div class="action-trigger">TRIGGER: ${act.trigger}</div>
+            <div class="action-desc">${act.action}</div>
+          </div>
+        `;
+      });
+    }
+
+    // Meta row
+    document.getElementById('metaSensorId').textContent  = result.sensor_id;
+    document.getElementById('metaCropType').textContent  = result.crop_type;
+    document.getElementById('metaTimestamp').textContent = new Date(result.timestamp).toLocaleString();
+    document.getElementById('metaRow').style.display     = 'flex';
+
+    // Show analysis panel
+    document.getElementById('analysisContent').style.display = 'block';
+  }
+
+  // ---------------------------------------------------------------------------
+  // Helpers
+  // ---------------------------------------------------------------------------
+  function setButtonLoading(id, loading) {
+    const btn = document.getElementById(id);
+    btn.disabled = loading;
+    if (loading) {
+      btn.dataset.originalText = btn.textContent;
+      btn.innerHTML = '<span class="spinner"></span> Loading…';
+    } else {
+      btn.innerHTML = btn.dataset.originalText;
+    }
+  }
+
+  // Auto-refresh sensors every 30 seconds
+  function startAutoRefresh() {
+    setInterval(async () => {
+      await fetchSensors();
+    }, 30_000);
+  }
+
+  // Re-fetch when crop changes
+  document.getElementById('cropSelect').addEventListener('change', () => {
+    fetchSensors();
+    // Clear analysis so user re-runs for the new crop
+    document.getElementById('analysisContent').style.display = 'none';
+    document.getElementById('analysisPlaceholder').style.display = 'block';
+    document.getElementById('analysisPlaceholder').innerHTML = `
+      <div class="placeholder-icon">🤖</div>
+      <p>Click <strong>Run Analysis</strong> to generate AI-powered insights from the current sensor data.</p>
+    `;
+    document.getElementById('statusPill').textContent = '—';
+    document.getElementById('metaRow').style.display = 'none';
+  });
+
+  // ---------------------------------------------------------------------------
+  // Boot
+  // ---------------------------------------------------------------------------
+  fetchSensors();
+  startAutoRefresh();
+</script>
+
+</body>
+</html>
