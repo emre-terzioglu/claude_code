@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Insights Dashboard</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+    crossorigin
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+
+  <!-- ── HEADER ─────────────────────────────── -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <svg class="logo-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="url(#grad)"/>
+          <path d="M8 22l5-7 4 4 5-9 2 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs><linearGradient id="grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#3b82f6"/></linearGradient></defs>
+        </svg>
+        <div>
+          <h1 class="logo-title">Business Insights Dashboard</h1>
+          <p class="logo-sub">IoT · Precision Agriculture · Entrepreneurship</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <div class="live-clock" id="liveClock"></div>
+        <div class="update-tag" id="updateTag">
+          <span class="pulse-dot"></span>
+          <span id="updateText">Initialising…</span>
+        </div>
+        <button class="btn-refresh" id="refreshBtn" onclick="loadAll()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+          </svg>
+          Refresh
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── STATS BAR ───────────────────────────── -->
+  <div class="stats-bar">
+    <div class="stat-card iot-stat">
+      <span class="stat-num" id="iotCount">—</span>
+      <span class="stat-lbl">IoT Articles</span>
+    </div>
+    <div class="stat-card agri-stat">
+      <span class="stat-num" id="agriCount">—</span>
+      <span class="stat-lbl">AgriTech Updates</span>
+    </div>
+    <div class="stat-card ent-stat">
+      <span class="stat-num" id="entCount">—</span>
+      <span class="stat-lbl">Startup Stories</span>
+    </div>
+    <div class="stat-card total-stat">
+      <span class="stat-num" id="totalCount">—</span>
+      <span class="stat-lbl">Total Insights</span>
+    </div>
+  </div>
+
+  <!-- ── DASHBOARD GRID ─────────────────────── -->
+  <main class="dashboard">
+
+    <!-- IoT Section -->
+    <section class="panel iot-panel">
+      <div class="panel-header">
+        <div class="panel-label">
+          <span class="panel-icon">🌐</span>
+          <div>
+            <h2 class="panel-title">IoT Technologies</h2>
+            <p class="panel-sub">Business &amp; Market Insights</p>
+          </div>
+        </div>
+        <span class="badge badge-iot">Live</span>
+      </div>
+      <div class="feed-scroll" id="iotFeed">
+        <div class="skeleton-wrap">
+          <div class="skeleton"></div>
+          <div class="skeleton short"></div>
+          <div class="skeleton"></div>
+          <div class="skeleton short"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Predictive Agriculture Section -->
+    <section class="panel agri-panel">
+      <div class="panel-header">
+        <div class="panel-label">
+          <span class="panel-icon">🌾</span>
+          <div>
+            <h2 class="panel-title">Predictive Agriculture</h2>
+            <p class="panel-sub">Market &amp; AgriTech Intelligence</p>
+          </div>
+        </div>
+        <span class="badge badge-agri">Live</span>
+      </div>
+      <div class="feed-scroll" id="agriFeed">
+        <div class="skeleton-wrap">
+          <div class="skeleton"></div>
+          <div class="skeleton short"></div>
+          <div class="skeleton"></div>
+          <div class="skeleton short"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Entrepreneurship Section -->
+    <section class="panel ent-panel">
+      <div class="panel-header">
+        <div class="panel-label">
+          <span class="panel-icon">🚀</span>
+          <div>
+            <h2 class="panel-title">Entrepreneurship</h2>
+            <p class="panel-sub">Startup &amp; VC News</p>
+          </div>
+        </div>
+        <span class="badge badge-ent">Live</span>
+      </div>
+      <div class="feed-scroll" id="entFeed">
+        <div class="skeleton-wrap">
+          <div class="skeleton"></div>
+          <div class="skeleton short"></div>
+          <div class="skeleton"></div>
+          <div class="skeleton short"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────── -->
+  <footer class="footer">
+    <p>Business Insights Dashboard &mdash; powered by Google News &amp; GitHub Actions &bull; Auto-refreshed every 6 hours</p>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
