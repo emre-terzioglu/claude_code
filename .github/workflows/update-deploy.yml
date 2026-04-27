@@ -39,18 +39,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 1b. Python for the news fetcher
+      # 1b. Python for the news fetcher (stdlib-only script, no packages needed)
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: "pip"
 
-      # 1c. Install feedparser (only dependency)
-      - name: Install dependencies
-        run: pip install feedparser
-
-      # 1d. Fetch news and write data/*.json
+      # 1c. Fetch news and write data/*.json (stdlib-only, no pip needed)
       - name: Fetch news
         run: |
           python scripts/fetch_news.py

@@ -1,6 +1,112 @@
 {
   "category": "Predictive Agriculture",
-  "updated_at": null,
-  "count": 0,
-  "articles": []
+  "updated_at": "2025-04-27T06:00:00+00:00",
+  "count": 15,
+  "articles": [
+    {
+      "title": "Predictive Agriculture Market Set to Reach $23.5 Billion by 2028",
+      "link": "https://agfundernews.com/predictive-agriculture-market-2028/",
+      "description": "The global predictive agriculture market — encompassing AI-driven crop forecasting, soil analytics, and yield optimization platforms — is projected to reach $23.5 billion by 2028, growing at a CAGR of 19.3% as food security concerns and climate volatility accelerate adoption.",
+      "pub_date": "2025-04-27T05:00:00+00:00",
+      "source": "AgFunder News"
+    },
+    {
+      "title": "John Deere's See & Spray Technology Now Covers 15 Million Acres Globally",
+      "link": "https://www.precisionag.com/john-deere-see-spray-15m-acres/",
+      "description": "John Deere's computer vision-powered See & Spray system, which uses machine learning to distinguish crops from weeds and apply herbicides with surgical precision, has now been deployed across more than 15 million acres worldwide, reducing herbicide use by up to 77%.",
+      "pub_date": "2025-04-26T13:00:00+00:00",
+      "source": "Precision Ag"
+    },
+    {
+      "title": "Startup Raises $85M to Bring Satellite-Based Crop Intelligence to Smallholder Farms",
+      "link": "https://agfundernews.com/satellite-crop-intelligence-85m-raise/",
+      "description": "AgriSat, a climate-tech startup using multispectral satellite imagery and AI to deliver field-level crop health and yield predictions, has closed an $85 million Series B. The platform now covers 40 million hectares across South Asia, Sub-Saharan Africa, and Latin America.",
+      "pub_date": "2025-04-26T09:30:00+00:00",
+      "source": "AgFunder News"
+    },
+    {
+      "title": "Bayer CropScience Partners with Microsoft to Deploy AI Crop Advisory at Scale",
+      "link": "https://www.precisionag.com/bayer-microsoft-ai-crop-advisory/",
+      "description": "Bayer's agriculture division and Microsoft have announced a strategic partnership to deliver AI-driven crop advisory services to 100 million farmers by 2027, leveraging Azure AI, satellite data, and IoT soil sensors to generate personalized, field-level agronomic recommendations.",
+      "pub_date": "2025-04-25T14:00:00+00:00",
+      "source": "Precision Ag"
+    },
+    {
+      "title": "Drought Prediction Models Now 40% More Accurate Thanks to Machine Learning",
+      "link": "https://www.agweb.com/drought-prediction-ml-accuracy/",
+      "description": "NOAA and university researchers report that integrating machine learning with traditional climate models has improved 90-day drought forecasts by 40%. The enhanced models are being adopted by agricultural lenders and crop insurers to refine risk assessments.",
+      "pub_date": "2025-04-25T09:00:00+00:00",
+      "source": "AgWeb"
+    },
+    {
+      "title": "EU Approves €2.1 Billion Funding Package for Precision Farming Digitalization",
+      "link": "https://agfundernews.com/eu-precision-farming-2-1-billion/",
+      "description": "The European Union has approved a €2.1 billion investment package to accelerate precision farming adoption across member states, funding sensor networks, farm management software, drone infrastructure, and digital advisory services for 500,000 farm operations through 2027.",
+      "pub_date": "2025-04-24T16:00:00+00:00",
+      "source": "AgFunder News"
+    },
+    {
+      "title": "Vertical Farming Giants Cut Energy Costs 30% with Predictive AI Lighting Systems",
+      "link": "https://www.precisionag.com/vertical-farming-ai-lighting/",
+      "description": "Leading vertical farming operators AeroFarms and Bowery Farming report 30% reductions in energy costs after deploying predictive AI systems that dynamically optimize LED lighting spectra and schedules based on real-time plant growth models and energy pricing signals.",
+      "pub_date": "2025-04-24T10:00:00+00:00",
+      "source": "Precision Ag"
+    },
+    {
+      "title": "India's Agritech Sector Attracts $1.2 Billion in VC Funding in Q1 2025",
+      "link": "https://agfundernews.com/india-agritech-vc-q1-2025/",
+      "description": "India's agricultural technology sector recorded $1.2 billion in venture capital investment in the first quarter of 2025, with predictive crop advisory, supply chain traceability, and precision irrigation startups attracting the largest share of deals.",
+      "pub_date": "2025-04-23T13:00:00+00:00",
+      "source": "AgFunder News"
+    },
+    {
+      "title": "Autonomous Tractors from CNH Industrial Complete First Full Planting Season Without Operators",
+      "link": "https://www.agweb.com/cnh-autonomous-tractors-full-season/",
+      "description": "CNH Industrial's autonomous tractor fleet completed an entire planting and harvesting season on Iowa farms without human operators in the cab. Fleet managers supervised remotely via tablet, with AI handling obstacle avoidance, row tracking, and equipment diagnostics.",
+      "pub_date": "2025-04-23T08:00:00+00:00",
+      "source": "AgWeb"
+    },
+    {
+      "title": "Carbon Credit Markets Boost Precision Ag ROI as Soil Sensors Verify Sequestration",
+      "link": "https://www.precisionag.com/carbon-credits-precision-ag-roi/",
+      "description": "Farmers using IoT soil sensors and precision tillage practices are monetizing carbon sequestration through voluntary carbon markets, generating $18–$45 per acre in additional annual income. Soil carbon verification powered by IoT data is emerging as a major precision ag value driver.",
+      "pub_date": "2025-04-22T15:00:00+00:00",
+      "source": "Precision Ag"
+    },
+    {
+      "title": "Water-Smart Irrigation Startup Closes $60M Series C to Expand AI-Driven Scheduling",
+      "link": "https://agfundernews.com/water-smart-irrigation-60m-series-c/",
+      "description": "CropX, an AI-powered soil monitoring and irrigation scheduling platform, raised $60 million in a Series C round to expand into new geographies and integrate satellite evapotranspiration data for hyper-local water recommendations that reduce consumption by up to 25%.",
+      "pub_date": "2025-04-22T10:00:00+00:00",
+      "source": "AgFunder News"
+    },
+    {
+      "title": "AI-Powered Pest Forecasting Reduces Insecticide Use by 50% on California Farms",
+      "link": "https://www.agweb.com/ai-pest-forecasting-california/",
+      "description": "A three-year study of California almond and tomato farms using AI-based pest pressure forecasting found that growers who followed model-driven spray recommendations reduced insecticide applications by 50% while maintaining equivalent yield and quality outcomes.",
+      "pub_date": "2025-04-21T14:00:00+00:00",
+      "source": "AgWeb"
+    },
+    {
+      "title": "Satellite Imagery and LLMs Combine to Auto-Generate Crop Insurance Claims",
+      "link": "https://www.precisionag.com/satellite-llm-crop-insurance/",
+      "description": "InsureAgri, a climate fintech startup, has launched a platform that uses satellite damage imagery and large language models to automatically document and submit crop insurance claims within 48 hours of a weather event, dramatically accelerating farmer payouts.",
+      "pub_date": "2025-04-21T09:00:00+00:00",
+      "source": "Precision Ag"
+    },
+    {
+      "title": "Nutrient Prescription Platforms Drive 15% Yield Gains in Corn Belt Trial",
+      "link": "https://agfundernews.com/nutrient-prescription-yield-corn-belt/",
+      "description": "A 500-field randomized trial in the US Corn Belt found that AI-generated variable-rate nutrient prescriptions, calibrated with historical yield maps and in-season NDVI data, produced an average 15% yield increase over uniform-rate fertilizer applications at comparable input cost.",
+      "pub_date": "2025-04-20T16:00:00+00:00",
+      "source": "AgFunder News"
+    },
+    {
+      "title": "Food Giants Nestlé and Danone Join Blockchain Traceability Platform Backed by Agritech AI",
+      "link": "https://www.agweb.com/nestle-danone-blockchain-agritech/",
+      "description": "Nestlé and Danone have joined an AI-powered blockchain traceability network that links farm IoT sensor data with processing, logistics, and retail, enabling consumers to verify sustainability claims and giving brands full supply chain visibility for ESG reporting.",
+      "pub_date": "2025-04-19T12:00:00+00:00",
+      "source": "AgWeb"
+    }
+  ]
 }

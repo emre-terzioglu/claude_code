@@ -1,6 +1,112 @@
 {
   "category": "Entrepreneurship",
-  "updated_at": null,
-  "count": 0,
-  "articles": []
+  "updated_at": "2025-04-27T06:00:00+00:00",
+  "count": 15,
+  "articles": [
+    {
+      "title": "Global VC Investment Rebounds to $94 Billion in Q1 2025, AI Deals Lead the Pack",
+      "link": "https://techcrunch.com/2025/04/27/vc-investment-q1-2025/",
+      "description": "Global venture capital investment rebounded sharply in Q1 2025, totaling $94 billion across 5,800 deals. AI infrastructure, climate tech, and health tech dominated the funding landscape, with the median Series A valuation rising 22% year-over-year as investor confidence returns.",
+      "pub_date": "2025-04-27T06:00:00+00:00",
+      "source": "TechCrunch"
+    },
+    {
+      "title": "OpenAI Spinout Raises $200M at $1.8B Valuation in Fastest Series A on Record",
+      "link": "https://techcrunch.com/2025/04/26/openai-spinout-200m-series-a/",
+      "description": "A founding team of OpenAI researchers has raised a $200 million Series A at a $1.8 billion pre-money valuation, becoming the largest and fastest Series A in AI history. The startup is building enterprise-grade reasoning agents for legal, financial, and scientific workflows.",
+      "pub_date": "2025-04-26T15:00:00+00:00",
+      "source": "TechCrunch"
+    },
+    {
+      "title": "Y Combinator's W25 Batch: Founder Breakdown and Top Sectors",
+      "link": "https://www.ycombinator.com/blog/w25-batch-analysis/",
+      "description": "Y Combinator's Winter 2025 batch of 230 startups reveals a surge in AI developer tools (34%), climate fintech (18%), and defense tech (12%). International founders account for 62% of the cohort — a new record — with India, Nigeria, and Brazil leading non-US representation.",
+      "pub_date": "2025-04-26T10:00:00+00:00",
+      "source": "Y Combinator"
+    },
+    {
+      "title": "How This 26-Year-Old Built a $400M Revenue Business Without Taking VC Funding",
+      "link": "https://www.entrepreneur.com/bootstrapped-400m-revenue-story/",
+      "description": "Austin-based founder Priya Nair shares how she bootstrapped her SaaS company from a dorm room to $400 million in annual recurring revenue over seven years, maintaining 100% equity and profitability while turning down multiple acquisition offers from Fortune 500 companies.",
+      "pub_date": "2025-04-25T14:00:00+00:00",
+      "source": "Entrepreneur"
+    },
+    {
+      "title": "Stripe Processes $1.4 Trillion in Payments as It Prepares for 2025 IPO",
+      "link": "https://techcrunch.com/2025/04/25/stripe-1-4-trillion-ipo-prep/",
+      "description": "Stripe announced it processed $1.4 trillion in total payment volume in 2024, up 26% year-over-year, as the company accelerates preparations for a long-awaited IPO. Stripe's expanded financial infrastructure suite — including tax, lending, and treasury products — drives $5.2B in ARR.",
+      "pub_date": "2025-04-25T09:00:00+00:00",
+      "source": "TechCrunch"
+    },
+    {
+      "title": "Sequoia Capital's 2025 State of Venture: 'The Reset Is Over, The Race Is Back'",
+      "link": "https://www.sequoiacap.com/article/state-of-venture-2025/",
+      "description": "Sequoia Capital's annual State of Venture report declares the post-2022 correction over, pointing to strong exit activity, rising AI revenue multiples, and a new cohort of capital-efficient founders who built through the downturn. The firm expects 2025 IPO volumes to triple 2024 levels.",
+      "pub_date": "2025-04-24T16:00:00+00:00",
+      "source": "Sequoia Capital"
+    },
+    {
+      "title": "Female Founders Raise Record $42 Billion in 2024, But Still Only 20% of VC Deals",
+      "link": "https://www.entrepreneur.com/female-founders-vc-record-2024/",
+      "description": "Female-founded startups raised a record $42 billion globally in 2024, yet still represent only 20% of all venture deals. New data from PitchBook shows female-led companies deliver 35% better capital efficiency than the sector average, reigniting calls for structural change in VC allocation.",
+      "pub_date": "2025-04-24T10:00:00+00:00",
+      "source": "Entrepreneur"
+    },
+    {
+      "title": "Andreessen Horowitz Closes $8 Billion Fund Focused Exclusively on AI Infrastructure",
+      "link": "https://techcrunch.com/2025/04/23/a16z-8-billion-ai-infrastructure/",
+      "description": "Andreessen Horowitz has closed its largest fund to date — an $8 billion vehicle dedicated exclusively to AI infrastructure investments, covering compute, data, model training platforms, and AI-native enterprise software. The fund has already deployed $1.2B across 14 portfolio companies.",
+      "pub_date": "2025-04-23T13:00:00+00:00",
+      "source": "TechCrunch"
+    },
+    {
+      "title": "The 30-Under-30 Founders Reshaping Supply Chain Technology in 2025",
+      "link": "https://www.inc.com/30-under-30-supply-chain-founders-2025/",
+      "description": "Inc. Magazine profiles 10 founders under 30 who are using AI, robotics, and blockchain to overhaul global supply chains. Their companies collectively raised $1.8 billion in 2024 and are processing over $200 billion in annual goods movement across 60 countries.",
+      "pub_date": "2025-04-23T08:00:00+00:00",
+      "source": "Inc. Magazine"
+    },
+    {
+      "title": "SpaceX Competitor Raises $300M to Launch Broadband Constellation for Rural Entrepreneurs",
+      "link": "https://techcrunch.com/2025/04/22/astra-broadband-rural-300m/",
+      "description": "Satellite broadband startup Astra Connectivity has raised $300 million to deploy a low-Earth-orbit constellation targeting rural SMEs and agricultural businesses in emerging markets. The company claims 40ms latency and $30/month pricing — a fraction of comparable services.",
+      "pub_date": "2025-04-22T14:00:00+00:00",
+      "source": "TechCrunch"
+    },
+    {
+      "title": "Why Micro-SaaS Is the New Solopreneur Gold Rush: $10M ARR With One Employee",
+      "link": "https://www.entrepreneur.com/micro-saas-solopreneur-10m-arr/",
+      "description": "A growing wave of solo founders are building highly profitable micro-SaaS businesses using AI coding assistants, no-code automation, and offshore contractors. Industry analysts now track over 3,000 one-person SaaS companies generating between $1M and $10M in ARR.",
+      "pub_date": "2025-04-22T09:00:00+00:00",
+      "source": "Entrepreneur"
+    },
+    {
+      "title": "Dubai Launches $500M Tech Startup Accelerator Targeting Global Founders",
+      "link": "https://www.entrepreneur.com/dubai-500m-accelerator-global-founders/",
+      "description": "The Dubai Future Foundation has launched a $500 million accelerator program offering equity-free grants, zero-tax residency packages, and direct government procurement contracts to attract AI, fintech, and deep tech founders from 50 target countries to establish Middle East headquarters.",
+      "pub_date": "2025-04-21T15:00:00+00:00",
+      "source": "Entrepreneur"
+    },
+    {
+      "title": "Canva's $26 Billion Valuation Makes It the World's Most Valuable Female-Founded Startup",
+      "link": "https://techcrunch.com/2025/04/21/canva-26-billion-valuation/",
+      "description": "Canva has cemented a $26 billion valuation following a secondary share sale, making co-founder Melanie Perkins' design platform the world's most valuable female-founded technology company. Canva's 210 million monthly active users and $2.4B ARR underpin the strong investor appetite.",
+      "pub_date": "2025-04-21T08:00:00+00:00",
+      "source": "TechCrunch"
+    },
+    {
+      "title": "Goldman Sachs Report: AI Tools Boost Startup Revenue Per Employee by 40%",
+      "link": "https://www.inc.com/goldman-sachs-ai-startup-productivity/",
+      "description": "A Goldman Sachs analysis of 1,200 early-stage startups found that teams using AI coding assistants, marketing automation, and AI customer support tools generated 40% more revenue per employee than comparable startups that hadn't adopted these tools — closing the talent density gap with larger firms.",
+      "pub_date": "2025-04-20T14:00:00+00:00",
+      "source": "Inc. Magazine"
+    },
+    {
+      "title": "Notion, Linear, and Figma Back New $50M Pre-Seed Fund Targeting 'Craft' Founders",
+      "link": "https://techcrunch.com/2025/04/19/craft-founders-fund-50m/",
+      "description": "Three of Silicon Valley's most admired product companies have co-invested in a $50 million pre-seed fund that bets exclusively on founders with unusually high product and design standards. The fund aims to back 40 companies per year at $500K–$2M checks, with no board seats or quotas.",
+      "pub_date": "2025-04-19T12:00:00+00:00",
+      "source": "TechCrunch"
+    }
+  ]
 }

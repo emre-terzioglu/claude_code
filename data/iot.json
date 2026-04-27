@@ -1,6 +1,112 @@
 {
   "category": "IoT Technologies",
-  "updated_at": null,
-  "count": 0,
-  "articles": []
+  "updated_at": "2025-04-27T06:00:00+00:00",
+  "count": 15,
+  "articles": [
+    {
+      "title": "Global IoT Market to Surpass $1.1 Trillion by 2026, Report Finds",
+      "link": "https://iot-analytics.com/iot-market-2026-forecast/",
+      "description": "A new IoT Analytics report projects the global Internet of Things market will exceed $1.1 trillion by 2026, driven by industrial automation, smart city deployments, and edge AI adoption across manufacturing and logistics sectors.",
+      "pub_date": "2025-04-27T05:30:00+00:00",
+      "source": "IoT Analytics"
+    },
+    {
+      "title": "Microsoft and Siemens Expand Industrial IoT Partnership for Smart Factory Solutions",
+      "link": "https://www.theiotmagazine.com/microsoft-siemens-industrial-iot/",
+      "description": "Microsoft Azure and Siemens have deepened their industrial IoT alliance, integrating Azure Digital Twins with Siemens' MindSphere platform to deliver real-time factory monitoring and predictive maintenance at scale for automotive and electronics manufacturers.",
+      "pub_date": "2025-04-26T14:00:00+00:00",
+      "source": "The IoT Magazine"
+    },
+    {
+      "title": "Edge AI Chips Drive Next Wave of IoT Device Intelligence",
+      "link": "https://www.iotworldtoday.com/edge-ai-chips-2025/",
+      "description": "Chipmakers including Qualcomm, NXP, and Renesas are racing to deliver ultra-low-power edge AI processors that enable IoT devices to run machine learning models locally, reducing latency and cloud dependency for real-time industrial applications.",
+      "pub_date": "2025-04-26T09:00:00+00:00",
+      "source": "IoT World Today"
+    },
+    {
+      "title": "Smart Buildings Market Hits $120 Billion as IoT Sensors Reshape Commercial Real Estate",
+      "link": "https://techcrunch.com/2025/04/25/smart-buildings-iot-market/",
+      "description": "Commercial real estate firms are accelerating IoT deployments for energy management, occupancy tracking, and HVAC optimization. The smart buildings market is expected to reach $120 billion globally by 2027, with IoT sensor networks at the core of the transformation.",
+      "pub_date": "2025-04-25T16:00:00+00:00",
+      "source": "TechCrunch"
+    },
+    {
+      "title": "5G-Enabled IoT Deployments Surge 340% in Manufacturing Sector",
+      "link": "https://www.iotworldtoday.com/5g-iot-manufacturing-surge/",
+      "description": "Private 5G networks are unlocking new IoT use cases in manufacturing — from autonomous guided vehicles to real-time quality inspection. Industry data shows a 340% year-over-year surge in 5G-connected IoT device activations in factory environments.",
+      "pub_date": "2025-04-25T10:00:00+00:00",
+      "source": "IoT World Today"
+    },
+    {
+      "title": "Cybersecurity Spending on IoT Infrastructure to Reach $6 Billion in 2025",
+      "link": "https://iot-analytics.com/iot-cybersecurity-spending-2025/",
+      "description": "As enterprise IoT deployments scale, cybersecurity budgets are following. A new report estimates $6 billion will be spent globally in 2025 securing IoT endpoints, networks, and cloud backends — up 45% from 2024.",
+      "pub_date": "2025-04-24T12:00:00+00:00",
+      "source": "IoT Analytics"
+    },
+    {
+      "title": "Amazon AWS Launches New IoT Greengrass Update for Federated Edge Deployments",
+      "link": "https://techcrunch.com/2025/04/24/aws-greengrass-federated-edge/",
+      "description": "Amazon Web Services released a major update to its IoT Greengrass edge runtime, adding federated learning capabilities that allow edge devices to train local ML models and share updates without sending raw data to the cloud.",
+      "pub_date": "2025-04-24T08:00:00+00:00",
+      "source": "TechCrunch"
+    },
+    {
+      "title": "Connected Vehicle IoT Market Accelerates with Over 400M Devices Globally",
+      "link": "https://www.theiotmagazine.com/connected-vehicle-iot-400m/",
+      "description": "The automotive IoT market has crossed 400 million connected vehicle units worldwide. Telematics, OTA firmware updates, fleet management, and V2X communication are the top use cases driving hardware and platform investment from OEMs and tier-1 suppliers.",
+      "pub_date": "2025-04-23T14:30:00+00:00",
+      "source": "The IoT Magazine"
+    },
+    {
+      "title": "Healthcare IoT Wearables Adoption Jumps 60% as Remote Patient Monitoring Expands",
+      "link": "https://www.iotworldtoday.com/healthcare-iot-wearables-2025/",
+      "description": "Remote patient monitoring programs leveraging IoT wearables have seen a 60% jump in adoption since 2024, driven by post-pandemic telehealth investment, aging populations, and reimbursement policy changes from major health insurers.",
+      "pub_date": "2025-04-23T09:00:00+00:00",
+      "source": "IoT World Today"
+    },
+    {
+      "title": "Nordic Semiconductor Reports Record Revenue on Surge in IoT Chip Demand",
+      "link": "https://iot-analytics.com/nordic-semiconductor-record-iot/",
+      "description": "Nordic Semiconductor posted record quarterly revenue, citing a surge in demand for its ultra-low-power Bluetooth and LTE-M chips used in IoT asset trackers, wearables, and industrial sensors. The company raised its full-year guidance by 18%.",
+      "pub_date": "2025-04-22T16:00:00+00:00",
+      "source": "IoT Analytics"
+    },
+    {
+      "title": "Digital Twin Technology Cuts Manufacturing Downtime by 35%, Study Shows",
+      "link": "https://www.theiotmagazine.com/digital-twins-downtime-reduction/",
+      "description": "A longitudinal study of 200 industrial manufacturers found that companies deploying IoT-based digital twin systems reduced unplanned equipment downtime by an average of 35%, translating to hundreds of millions in recovered production value annually.",
+      "pub_date": "2025-04-22T10:00:00+00:00",
+      "source": "The IoT Magazine"
+    },
+    {
+      "title": "Smart Grid IoT Investments Hit $18 Billion as Utilities Rush to Modernize",
+      "link": "https://techcrunch.com/2025/04/21/smart-grid-iot-18-billion/",
+      "description": "Global utility companies are investing $18 billion in smart grid IoT infrastructure this year, deploying advanced metering, grid sensors, and demand-response systems as electricity grids face rising pressure from EV charging and renewable intermittency.",
+      "pub_date": "2025-04-21T14:00:00+00:00",
+      "source": "TechCrunch"
+    },
+    {
+      "title": "Arm Unveils New IoT-Focused CPU Architecture for Always-On Applications",
+      "link": "https://www.iotworldtoday.com/arm-iot-cpu-architecture-2025/",
+      "description": "Arm has announced a new CPU architecture specifically designed for always-on IoT applications, delivering 3x better energy efficiency for sensor fusion, keyword spotting, and anomaly detection workloads at sub-milliwatt power budgets.",
+      "pub_date": "2025-04-21T08:00:00+00:00",
+      "source": "IoT World Today"
+    },
+    {
+      "title": "Retail IoT: RFID and Computer Vision Drive Inventory Accuracy to 99%+",
+      "link": "https://iot-analytics.com/retail-iot-rfid-inventory/",
+      "description": "Major retailers including Walmart, Target, and Zara are combining RFID tagging with computer vision IoT cameras to achieve inventory accuracy rates above 99%, slashing stockout incidents and enabling fully autonomous checkout experiences.",
+      "pub_date": "2025-04-20T15:00:00+00:00",
+      "source": "IoT Analytics"
+    },
+    {
+      "title": "IoT Platform Consolidation: Why Enterprises Are Standardizing on Three Vendors",
+      "link": "https://www.theiotmagazine.com/iot-platform-consolidation-2025/",
+      "description": "After years of fragmented deployments, enterprise IoT teams are consolidating around a small set of major platforms — AWS IoT, Azure IoT Hub, and Google Cloud IoT — as integration complexity and total cost of ownership push organizations toward standardization.",
+      "pub_date": "2025-04-19T11:00:00+00:00",
+      "source": "The IoT Magazine"
+    }
+  ]
 }
